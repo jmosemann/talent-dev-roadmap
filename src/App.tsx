@@ -29,7 +29,7 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 
 function SectionTitle({ number, title, intro }: { number?: string; title: string; intro?: string }) {
   return (
-    <div className="section-title-block">
+    <div className={`section-title-block ${intro ? '' : 'section-title-block--solo'}`}>
       <div>
         {number && <span className="section-number">{number}</span>}
         <h2>{title}</h2>
@@ -388,7 +388,6 @@ export default function App() {
           <Eyebrow>Herohub Report Studio</Eyebrow>
           <h1>Turn a dealership roadmap into a polished executive report.</h1>
           <p>Upload a Markdown, TXT, or PDF source. The app extracts the content into a fixed Herohub schema, applies the branded report design, and lets you review the JSON before exporting to PDF.</p>
-          <div className="brand-chips"><span>#00BFB3</span><span>#131515</span><span>#20364E</span><span>#00766E</span><span>#D8F1A0</span></div>
         </div>
         <div className="upload-card">
           <input ref={inputRef} type="file" accept=".md,.txt,.pdf,text/markdown,text/plain,application/pdf" onChange={(e) => setSelectedFile(e.target.files?.[0] || null)} hidden />

@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: #131515;
   background: #eef3f3;
   font-synthesis: none;
@@ -34,9 +34,6 @@ button:disabled { opacity: .5; cursor: not-allowed; }
 .hero-copy h1 { font-size: clamp(44px, 6vw, 72px); line-height: .98; letter-spacing: -.05em; margin: 18px 0 24px; max-width: 780px; }
 .hero-copy > p { max-width: 720px; font-size: 18px; line-height: 1.65; color: #4c5859; }
 .eyebrow { color: var(--deep-teal); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .16em; }
-.brand-chips { display: flex; gap: 9px; flex-wrap: wrap; margin-top: 28px; }
-.brand-chips span { font-size: 11px; font-weight: 700; padding: 9px 12px; border-radius: 999px; background: #fff; border: 1px solid var(--line); }
-
 .upload-card { background: #fff; border-radius: 24px; padding: 24px; box-shadow: 0 24px 70px rgba(32,54,78,.12); border: 1px solid rgba(32,54,78,.08); }
 .drop-zone { width: 100%; border: 1.5px dashed #a8bfbd; background: #f8fbfb; border-radius: 18px; min-height: 210px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: var(--ink); padding: 20px; }
 .drop-zone:hover { border-color: var(--teal); background: #f3fffe; }
@@ -66,6 +63,7 @@ button:disabled { opacity: .5; cursor: not-allowed; }
 .page-brand { position: absolute; top: 28px; right: 36px; opacity: .94; }
 .page-brand .logo-wrap img { width: 126px; }
 .section-title-block { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr); gap: 42px; align-items: end; margin: 26px 0 36px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+.section-title-block--solo { grid-template-columns: 1fr; }
 .section-title-block > div { display: flex; align-items: baseline; gap: 14px; }
 .section-title-block h2 { font-size: 34px; letter-spacing: -.035em; margin: 0; line-height: 1.05; color: var(--navy); }
 .section-title-block p { margin: 0; line-height: 1.55; color: #5d6a6b; font-size: 13px; }
@@ -248,25 +246,146 @@ ul { padding-left: 17px; margin: 7px 0 0; }
 
 @media print {
   @page { size: Letter; margin: 0; }
-  body { background: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  html,
+  body {
+    width: 8.5in;
+    margin: 0 !important;
+    background: #fff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
   .no-print { display: none !important; }
   .workspace { border: 0; padding: 0; }
-  .report-document { width: 100%; }
-  .report-page { width: 8.5in; height: 11in; min-height: 11in; max-height: 11in; margin: 0; padding: .48in .55in .52in; box-shadow: none; page-break-after: always; break-after: page; overflow: hidden; }
-  .report-page:last-child { page-break-after: auto; }
-  .cover-page, .closing-page { padding: .55in; }
-  .page-brand { top: .24in; right: .34in; }
-  .page-brand .logo-wrap img { width: 1.15in; }
-  .section-title-block { margin-top: .16in; }
-  .cover-content h1 { font-size: 47pt; }
-  .cover-content h3 { font-size: 17pt; }
-  .cover-footer { gap: 14px; }
-  .metric-card { min-height: .88in; }
-  .quote-panel blockquote { font-size: 18pt; }
-  .leadership-read p { font-size: 15pt; }
-  .strength-card { min-height: 2.1in; }
-  .leader-card { min-height: 1.75in; }
-  .capacity-card { min-height: 1.2in; }
-  .month-card { min-height: 1.65in; }
-  .scorecard-card { min-height: 1.45in; }
+  .report-document { width: 8.5in; margin: 0; }
+
+  /*
+    Print must use the report's desktop grid, not the responsive <900px grid.
+    Chromium's print viewport is narrow enough to trigger the mobile rules unless
+    these values are explicitly restored here.
+  */
+  .section-title-block { grid-template-columns: minmax(0, 1.15fr) minmax(250px, .85fr); gap: 30px; }
+  .section-title-block--solo { grid-template-columns: 1fr; }
+  .metric-grid { grid-template-columns: repeat(4, 1fr); }
+  .profile-grid { grid-template-columns: 1fr 1fr; }
+  .profile-grid__wide { grid-column: 1 / -1; }
+  .priority-grid { grid-template-columns: repeat(5, 1fr); }
+  .strength-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .leader-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .capacity-grid { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .month-card { grid-template-columns: 1.38in 1fr; }
+  .month-card__rail { flex-direction: column; align-items: flex-start; }
+  .month-card__heading { grid-template-columns: 1fr 1.22in; }
+  .month-card__columns { grid-template-columns: 1fr 1fr; }
+  .timeline-row { grid-template-columns: .42in minmax(2.25in, 1.2fr) .72fr .82fr; gap: .12in; }
+  .timeline-row > div:nth-child(n+3) { grid-column: auto; }
+  .timeline-row > div:nth-child(2) { flex-direction: row; align-items: center; }
+  .scorecard-grid { grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  .questions-panel ol { grid-template-columns: 1fr 1fr; }
+  .outcome-list { grid-template-columns: 1fr 1fr; }
+  .strategic-aim, .closing-statement { grid-template-columns: 1.45in 1fr; }
+
+  .report-page {
+    width: 8.5in;
+    height: 11in;
+    min-height: 11in;
+    max-height: 11in;
+    margin: 0;
+    padding: .42in .50in .46in;
+    box-shadow: none;
+    page-break-after: always;
+    break-after: page;
+    overflow: hidden;
+  }
+
+  .report-page:last-child { page-break-after: auto; break-after: auto; }
+  .cover-page, .closing-page { padding: .50in; }
+  .page-brand { top: .22in; right: .30in; }
+  .page-brand .logo-wrap img { width: 1.08in; }
+  .section-title-block { margin: .12in 0 .23in; padding-bottom: .15in; }
+  .section-title-block h2 { font-size: 25pt; }
+  .section-title-block p { font-size: 9.5pt; line-height: 1.35; }
+
+  .cover-content h1 { font-size: 45pt; }
+  .cover-content h3 { font-size: 16pt; }
+  .cover-footer { gap: 12px; }
+
+  .metric-card { min-height: .82in; padding: .15in; }
+  .quote-panel { margin-top: .18in; padding: .20in .23in; }
+  .quote-panel blockquote { font-size: 17pt; }
+  .strategic-aim { padding: .15in .18in; }
+
+  .priority-card { min-height: 1.05in; padding: .12in; }
+  .leadership-read { margin-top: .18in; padding: .22in .25in; }
+  .leadership-read p { font-size: 14pt; }
+  .source-note { margin-top: .10in; padding: .10in .13in; }
+
+  .strength-card { min-height: 2.00in; padding: .16in; }
+  .strength-card h3 { margin: .18in 0 .08in; font-size: 14pt; }
+  .strength-card p, .strength-card > div strong { font-size: 8.5pt; }
+  .table-wrap { margin-top: .14in; }
+  th { padding: .08in .10in; }
+  td { padding: .09in .10in; }
+
+  .leader-card { min-height: 1.58in; padding: .13in .15in; }
+  .leader-grid--compact .leader-card { min-height: 1.45in; }
+  .leader-card__header { padding-bottom: .07in; }
+  .leader-card h3 { font-size: 13.5pt; }
+  .decision-gate { margin-top: .07in; padding: .07in .09in; font-size: 8.2pt; }
+  dl { margin-top: .07in; gap: .035in; }
+  dl > div { grid-template-columns: .88in 1fr; gap: .07in; }
+  dt { font-size: 6.2pt; }
+  dd { font-size: 7.8pt; line-height: 1.25; }
+
+  .capacity-card { min-height: 1.10in; padding: .11in; }
+  .capacity-card > strong { margin-top: .07in; }
+  .capacity-card p { margin: .04in 0; }
+  .capacity-legend { margin-top: .14in; padding-top: .11in; }
+
+  .roadmap-stack { gap: .09in; }
+  .month-card { min-height: 1.52in; }
+  .month-card__rail { padding: .13in; gap: .06in; }
+  .month-card__body { padding: .12in .14in; }
+  .month-card__heading { gap: .12in; padding-bottom: .07in; }
+  .month-card__heading h3 { font-size: 13pt; }
+  .month-card__heading p { font-size: 7.7pt; line-height: 1.28; }
+  .month-card__columns { gap: .18in; padding-top: .06in; }
+  .month-card li { font-size: 7pt; line-height: 1.28; margin: .015in 0; }
+  .support-line { margin-top: .06in; padding: .04in .07in; }
+
+  .timeline-row { padding: .095in .05in; }
+  .timeline-row > div { gap: .025in; }
+  .timeline-row > div:nth-child(2) { gap: .08in; }
+  .timeline-row > div > strong { font-size: 8.2pt; line-height: 1.2; }
+  .timeline-row > div > span:not(.badge) { font-size: 5.8pt; }
+
+  .scorecard-card { min-height: 1.25in; padding: .13in; }
+  .scorecard-card > strong { margin-top: .15in; font-size: 10pt; }
+  .questions-panel { margin-top: .17in; padding: .18in .22in; }
+  .questions-panel ol { gap: .05in .25in; }
+  .questions-panel li { font-size: 8.7pt; }
+
+  .table-wrap--large table { font-size: 8.5pt; }
+  .table-wrap--large td { padding: .10in .10in; }
+  .outcome-box { margin-top: .18in; padding: .14in .17in; }
+  .outcome-box p { font-size: 13pt; }
+
+  .closing-content { margin-top: .48in; }
+  .closing-content h2 { font-size: 31pt; margin: .10in 0 .24in; }
+  .outcome-list > div { min-height: .54in; padding: .10in .11in; }
+  .closing-statement { margin-top: .30in; padding: .16in .18in; }
+
+  .strength-card,
+  .leader-card,
+  .capacity-card,
+  .month-card,
+  .timeline-row,
+  .scorecard-card,
+  .outcome-box,
+  tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
 }
+
