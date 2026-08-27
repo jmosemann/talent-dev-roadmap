@@ -387,14 +387,14 @@ export default function App() {
         <div className="hero-copy">
           <Eyebrow>Herohub Report Studio</Eyebrow>
           <h1>Turn a dealership roadmap into a polished executive report.</h1>
-          <p>Upload a Markdown, TXT, or PDF source. The app extracts the content into a fixed Herohub schema, applies the branded report design, and lets you review the JSON before exporting to PDF.</p>
+          <p>Upload a Markdown or TXT source. The app extracts the content into a fixed Herohub schema, applies the branded report design, and lets you review the JSON before exporting to PDF.</p>
         </div>
         <div className="upload-card">
           <input ref={inputRef} type="file" accept=".md,.txt,.pdf,text/markdown,text/plain,application/pdf" onChange={(e) => setSelectedFile(e.target.files?.[0] || null)} hidden />
           <button className="drop-zone" onClick={() => inputRef.current?.click()}>
             <span className="upload-icon">↑</span>
             <strong>{selectedFile ? selectedFile.name : 'Choose a roadmap or assessment'}</strong>
-            <small>{selectedFile ? `${(selectedFile.size / 1024).toFixed(0)} KB` : 'Markdown, TXT or PDF · max 3 MB'}</small>
+            <small>{selectedFile ? `${(selectedFile.size / 1024).toFixed(0)} KB` : 'Markdown or TXT · max 3 MB'}</small>
           </button>
           <button className="primary-button" onClick={generateReport} disabled={!selectedFile || isGenerating}>{isGenerating ? 'Building Herohub report…' : 'Generate Report'}</button>
           <div className="or"><span />or<span /></div>
