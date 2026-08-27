@@ -11,7 +11,7 @@ Deploy-ready Netlify + React/Vite app that turns dealership roadmap source files
   - `#20364E` navy
   - `#00766E` deep teal
   - `#D8F1A0` accent
-- Markdown / TXT / PDF upload
+- Markdown / TXT upload
 - OpenAI-powered extraction into a strict report JSON schema
 - Fixed React report components so visual layout stays consistent across dealerships
 - Executive cover, planning frame, priorities, strengths/opportunities, talent plans, capacity map, 12-month roadmap, first 30 days, scorecard, decisions, and final outcome
