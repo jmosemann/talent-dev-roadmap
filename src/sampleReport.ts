@@ -1,0 +1,115 @@
+import type { HerohubReport } from './types'
+
+export const sampleReport: HerohubReport = {
+  reportTitle: 'Honda Suzuki of Sanford — Talent Development Roadmap',
+  reportSubtitle: '12-Month Talent Development Roadmap',
+  profile: {
+    name: 'Honda Suzuki of Sanford',
+    period: 'September 2026 – August 2027',
+    locations: '1',
+    employees: 'Under 15',
+    brands: ['Honda','Suzuki','Kymco','SSR Motorsports','Segway Powersports US','Beta Motorcycles USA'],
+    dealerPrincipal: 'Cliff Barker',
+    generalManager: 'Daniel Barker',
+    assessmentDate: 'July 17, 2026',
+  },
+  purpose: 'Build role-ready managers, strengthen succession coverage, improve service, F&I and parts performance, and reduce the dealership’s day-to-day dependence on Cliff Barker.',
+  executiveStrongTeam: 'Honda Suzuki of Sanford has a compact, experienced team with long-standing leadership, established department managers, OEM product and sales training, and technician certification already in use. The team’s size creates leverage when development is tightly focused.',
+  executiveOpportunities: 'Strengthen Vann Gibson, Josh Higdon, Jason Baker and Daniel Barker in their current leadership responsibilities while deliberately preparing Joe Cole for a possible Service Writer/Advisor or future management role.',
+  executiveRisks: 'There is no structured onboarding program, the Dealer Principal role has no ready successor, and accounting and marketing lack identified succession coverage. Management development, documented processes, coaching routines and cross-training are therefore central to the plan.',
+  strategicPriorities: ['Establish structured onboarding','Build department-manager capability and authority','Strengthen service, F&I and parts profitability','Develop future-role candidates deliberately','Create leadership and process coverage for owner time away'],
+  successDefinition: 'Cliff can take more time off without worrying about day-to-day operations.',
+  assessmentSnapshot: [
+    { area:'Dealership', evidence:'Honda Suzuki of Sanford; one location; under 15 employees' },
+    { area:'OEM mix', evidence:'Honda, Suzuki, Kymco, SSR Motorsports, Segway Powersports US and Beta Motorcycles USA' },
+    { area:'Current formal training', evidence:'OEM product training, OEM sales certification and technician certification' },
+    { area:'Structured onboarding', evidence:'None reported' },
+    { area:'Top priorities', evidence:'Service profitability; technician development; parts & accessories; customer experience; leadership development' },
+    { area:'Expected hiring', evidence:'Sales, finance, technicians, parts and administrative' },
+  ],
+  talentSnapshot: [
+    { name:'Cliff Barker', role:'Dealer Principal / Manager', observedAsset:'24 years; strategic and operating knowledge', developmentNeed:'Delegate recurring decisions; establish leadership coverage', successionRelevance:'No ready Dealer Principal successor', urgency:'High' },
+    { name:'Daniel Barker', role:'GM / F&I', observedAsset:'Executive and deal leadership scope', developmentNeed:'F&I process, profitability and operating cadence', successionRelevance:'Primary leadership coverage for Cliff', urgency:'High' },
+    { name:'Vann Gibson', role:'Sales Manager', observedAsset:'Experienced senior salesperson', developmentNeed:'Management authority, coaching and accountability', successionRelevance:'Sales leadership continuity', urgency:'High' },
+    { name:'Josh Higdon', role:'Service Manager', observedAsset:'Current department leader', developmentNeed:'Profitability, technician performance and shop control', successionRelevance:'Potential future role not yet defined', urgency:'High' },
+    { name:'Jason Baker', role:'Parts Manager', observedAsset:'Current department leader', developmentNeed:'Department profitability, inventory and team execution', successionRelevance:'Potential future role not yet defined', urgency:'Medium-high' },
+    { name:'Joe Cole', role:'Service C Technician', observedAsset:'Identified development candidate', developmentNeed:'Advisor communication, service process and technical growth', successionRelevance:'Possible Service Writer/Advisor/Manager; confirm', urgency:'Medium-high' },
+  ],
+  roleReadinessGaps: [
+    'Build a repeatable 30/60/90-day onboarding process before expected hiring accelerates.',
+    'Give Daniel defined decision rights and recurring operating-review ownership while longer-term ownership succession remains open.',
+    'Vann needs formal management development, visible sponsorship and accountability for coaching Bill and Rusty.',
+    'Josh needs a consistent technician scorecard, daily operating rhythm and focused coaching on efficiency, workflow and profitability.',
+    'Joe’s possible advisor/manager path must be validated before a permanent role move.',
+  ],
+  employeeAssignments: [
+    { name:'Cliff Barker', role:'Dealer Principal / Manager', objective:'Transfer daily dependence to a leadership system', herohubU:'No directly aligned Pathway', herohubIQ:'Not required', programs:'Profit by Design 310; AI Marketing 201 optional', cadence:'Monthly delegation / operating review', evidence:'Decision-rights map; 5-day absence test' },
+    { name:'Daniel Barker', role:'GM / F&I Manager', objective:'Own operating cadence and improve F&I profitability', herohubU:'F&I Manager', herohubIQ:'Business Manager/F&I', programs:'F&I Bootcamp; F&I Foundations 360', cadence:'Weekly with Cliff; monthly scorecard', evidence:'Menu/process adoption; F&I baseline and trend' },
+    { name:'Vann Gibson', role:'Sales Manager', objective:'Become a respected coach and accountable manager', herohubU:'Sales Manager', herohubIQ:'Sales', programs:'Sales Management Bootcamp; Sales Leadership 340', cadence:'Weekly with Daniel', evidence:'1:1s completed; process adherence; team feedback' },
+    { name:'Bill Mattson', role:'Part-Time Sales Associate', objective:'Consistent sales process and customer-value message', herohubU:'No aligned employee Pathway', herohubIQ:'Sales', programs:'No manager-level event recommended', cadence:'Biweekly with Vann', evidence:'Roleplay improvement; sales-process observation' },
+    { name:'Jason Baker', role:'Parts Manager', objective:'Improve profitability, inventory discipline and leadership', herohubU:'Parts Manager', herohubIQ:'Parts & Accessories Advisor', programs:'Parts Bootcamp; Parts Management 201', cadence:'Weekly with Cliff/Daniel', evidence:'Margin/turn baseline; daily controls; action completion' },
+    { name:'Josh Higdon', role:'Service Manager', objective:'Improve service profitability and technician performance', herohubU:'Service Manager', herohubIQ:'Service Writer/Advisor', programs:'Service Operations Bootcamp; Service Leadership 450', cadence:'Weekly with Daniel', evidence:'Efficiency/productivity baselines; WIP rhythm' },
+  ],
+  programAssignmentLogic: [
+    'Required events address a documented current-role gap; recommended events add leverage when staffing coverage is workable.',
+    'No more than two people should travel at once, and service should not lose both Josh and Joe simultaneously without backfill.',
+    'Joe’s Service Experience 350 assignment remains conditional on confirming the advisor/manager development path and service coverage.',
+  ],
+  roadmap: [
+    { month:'Sep 2026', seasonCapacity:'Shoulder', theme:'Launch, baseline and leadership reset', actionsPrograms:'Validate roster; Herohub Unlimited onboarding; roleplay baseline; begin Vann/Josh Bootcamps and manager Pathways', participants:'Cliff, Daniel, Vann, Josh, Jason; applicable IQ users', evidence:'Onboarding complete; baselines recorded' },
+    { month:'Oct 2026', seasonCapacity:'Development', theme:'Formal manager foundations', actionsPrograms:'Sales Leadership 340; F&I Foundations 360; Profit by Design 310; Service Leadership 450; continue Bootcamps', participants:'Cliff, Daniel, Vann, Josh', evidence:'Attendance; 30-day implementation plans' },
+    { month:'Nov 2026', seasonCapacity:'Development', theme:'Parts leadership and process ownership', actionsPrograms:'Parts Management 201; start Parts Bootcamp; continue Sales/Service/F&I programs', participants:'Jason; managers; Cliff optional', evidence:'Parts action plan; onboarding draft approved' },
+    { month:'Dec 2026', seasonCapacity:'Development', theme:'Process standardization', actionsPrograms:'Complete Sales and Service Bootcamps; continue F&I and Parts Bootcamps; quarterly review', participants:'Managers', evidence:'Bootcamp milestones; KPI definitions approved' },
+    { month:'Jan 2027', seasonCapacity:'Development', theme:'Customer experience and successor practice', actionsPrograms:'Service Experience 350 for Joe if confirmed; complete F&I Bootcamp; continue Parts Bootcamp', participants:'Joe, Daniel, Jason', evidence:'Joe readiness checkpoint; F&I process audit' },
+    { month:'Feb 2027', seasonCapacity:'Development', theme:'Finish intensive cycle', actionsPrograms:'Complete Parts Bootcamp and current manager Pathway modules; peak-readiness review', participants:'Cliff, Daniel, Vann, Josh, Jason', evidence:'Peak operating plans; manager coverage test' },
+    { month:'Mar 2027', seasonCapacity:'Shoulder / transition', theme:'Stabilize before peak', actionsPrograms:'No new intensive program; optional Parts Inventory 301 only if DMS and coverage confirmed; quarterly review', participants:'Jason conditional; leaders', evidence:'Peak dashboard live; staffing gaps escalated' },
+    { month:'Apr 2027', seasonCapacity:'Peak - protected', theme:'Execute and coach', actionsPrograms:'Pause HerohubU, Bootcamps and Basecamps; weekly IQ; brief KPI coaching', participants:'All applicable employees', evidence:'Weekly IQ completion; operating KPI review' },
+    { month:'May 2027', seasonCapacity:'Peak - protected', theme:'Maintain consistency', actionsPrograms:'Weekly IQ; manager observations; no intensive training', participants:'All applicable employees', evidence:'Coaching completion; issue follow-through' },
+    { month:'Jun 2027', seasonCapacity:'Peak - protected', theme:'Protect customer experience', actionsPrograms:'Weekly IQ; retention and process reinforcement; quarterly review', participants:'All applicable employees', evidence:'Quarterly trend review; peak lessons captured' },
+    { month:'Jul 2027', seasonCapacity:'Development', theme:'Resume development and cross-training', actionsPrograms:'Resume published Pathways; daily IQ on scheduled workdays; successor coverage exercise', participants:'All applicable employees', evidence:'Pathway progress; 3-day leadership coverage test' },
+    { month:'Aug 2027', seasonCapacity:'Development', theme:'Prove readiness and set Year 2', actionsPrograms:'Daily IQ; final readiness reviews; annual talent calibration; build next roadmap', participants:'Entire leadership team', evidence:'5-day absence test; Year 2 decisions approved' },
+  ],
+  iqCadence: [
+    'September-February and July-August: brief assigned practice on scheduled workdays for applicable customer-facing roles, with one manager review each week.',
+    'March-June: one assigned roleplay per employee per week with a short manager review.',
+  ],
+  individualCalendars: [
+    { name:'Daniel Barker', role:'General Manager / F&I Manager', objective:'Own the dealership operating cadence and materially strengthen F&I process, consistency and profitability.', coach:'Cliff Barker', months: makeCalendar('Business Manager/F&I') },
+    { name:'Vann Gibson', role:'Sales Manager', objective:'Transition from senior salesperson to respected sales leader through clear standards, coaching and accountability.', coach:'Daniel Barker, sponsored visibly by Cliff Barker', months: makeCalendar('Sales') },
+    { name:'Josh Higdon', role:'Service Manager', objective:'Improve service profitability, technician efficiency, workflow control and coaching discipline.', coach:'Daniel Barker', months: makeCalendar('Service Writer/Advisor') },
+  ],
+  first30Days: [
+    { timing:'Days 1-3', action:'Validate the roster, roles, reporting lines and all program enrollments', owner:'Cliff + Daniel', evidence:'Signed roster and manager ownership list' },
+    { timing:'Days 1-5', action:'Enroll users in Herohub Unlimited; orient managers to HerohubU and HerohubIQ dashboards', owner:'Daniel', evidence:'All accounts active; managers can assign and review' },
+    { timing:'Week 1', action:'Establish current baselines: F&I, service, parts, sales activity, coaching and retention', owner:'Department managers', evidence:'Baseline scorecard populated; no invented targets' },
+    { timing:'Week 2', action:'Launch custom Why Buy From Honda Suzuki of Sanford? competition', owner:'Daniel', evidence:'Scenario live; audience enrolled; scoring window published' },
+    { timing:'Week 4', action:'Complete first monthly manager review and approve October travel/coverage', owner:'Cliff + Daniel', evidence:'Action items closed; seats and coverage confirmed' },
+  ],
+  scorecard: [
+    { measure:'Herohub Unlimited activation', evidence:'% of assigned employees active', owner:'Daniel', cadence:'Weekly in Month 1; monthly thereafter' },
+    { measure:'HerohubU progress', evidence:'Published module completion by assigned managers', owner:'Daniel', cadence:'Monthly' },
+    { measure:'HerohubIQ practice', evidence:'Assigned vs. completed; repeat attempts', owner:'Department managers', cadence:'Weekly' },
+    { measure:'Manager coaching', evidence:'1:1s, observations and action-item closure', owner:'Cliff / Daniel', cadence:'Monthly' },
+    { measure:'Successor readiness', evidence:'Coverage tasks completed without escalation', owner:'Cliff', cadence:'Quarterly absence test' },
+  ],
+  decisionsDependencies: [
+    'Confirm the roadmap start as September 2026 and reserve seats for the October-February program sequence.',
+    'Confirm whether the dealership uses Lightspeed DMS before assigning Parts Inventory Management with Lightspeed DMS 301.',
+    'Confirm Joe Cole’s interest and readiness for a Service Writer/Advisor or management path before booking Service Experience & Advisor Performance 350.',
+    'Approve coverage for each in-person Basecamp; do not send Josh and Joe together unless service backfill is secured.',
+    'Build the structured onboarding template before filling expected openings.',
+    'Set KPI targets only after Month 1 baselines are established and approved.',
+  ],
+  sourceNotes: ['Primary evidence: Honda Suzuki of Sanford Talent Development Assessment submitted July 17, 2026.', 'Program assignments and dates come from the Herohub Basecamp Catalog and current HerohubU Master Outline.', 'Individual role tenure was not provided; no unsupported successor assignments should be inferred.'],
+}
+
+function makeCalendar(iq: string) {
+  const months = ['Sep 2026','Oct 2026','Nov 2026','Dec 2026','Jan 2027','Feb 2027','Mar 2027','Apr 2027','May 2027','Jun 2027','Jul 2027','Aug 2027']
+  return months.map((month, i) => ({
+    month,
+    capacity: i < 1 || i === 6 ? 'Shoulder' : i >= 7 && i <= 9 ? 'Peak' : 'Development',
+    development: i >= 7 && i <= 9 ? 'Protected peak: reinforce current standards; no new intensive program' : i === 0 ? 'Herohub Unlimited onboarding; establish baseline' : 'Continue assigned Pathway / role development and manager implementation',
+    herohubIQ: `${iq}: ${i >= 7 && i <= 9 ? '1/week; short manager review' : 'Daily on scheduled workdays; weekly review'}`,
+    reinforcementEvidence: 'Manager review; baseline/trend evidence; action-item follow-through',
+  }))
+}
